@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Yiddish Alphabet Basic Keyboard</title>
+    <title>Hebrew Alphabet Basic Keyboard</title>
     <style>
 
         /* The page uses a serif font throughout. */
         * {
-            font-family: serif;
+            font-family: arial, sans-serif;
         }
 
 
@@ -51,6 +51,7 @@
         .alphabet {}
         .whitespace {}
         .combinations {}
+        .finals {}
         */
     </style>
 
@@ -61,125 +62,74 @@
 
     <script>
 
-        // A variable that defines the Yiddish alphabet.
+        var aboutThisApplication = "This is for causing the computer to speak out the names of the Hebrew letters. Make sure your sound is on. This works on modern web browsers. You can find more about the software developer at the following web address: https://www.github.com/elsanussi-s-mneina";
+
+        // A variable that defines the Hebrew alphabet.
         // Each character is defined as the 
         // text that it will write in the text box,
         // the buttonLabel which is the text that is written on the button
         // and the description, which is what a screenreader would describe
         // the button as.
-        var yiddishAlphabet = [
-            { text: "\u05D0", buttonLabel: "\u05D0 shtumer alef", description: "shtumer alef" },
-            { text: "\u05D0\u05B7", buttonLabel: "\u05D0\u05B7 pasekh alef", description: "pasekh alef" },
-            { text: "\u05D0\u05B8", buttonLabel: "\u05D0\u05B8 komets alef", description: "komets alef" },
-            { text: "\u05D1", buttonLabel: "\u05D1 beys", description: "beys" },
-            { text: "\u05D1\u05BF", buttonLabel: "\u05D1\u05BF veys", description: "veys" },
-            { text: "\u05D2", buttonLabel: "\u05D2 giml", description: "giml" },
-            { text: "\u05D3", buttonLabel: "\u05D3 daled", description: "daled" },
-            { text: "\u05D4", buttonLabel: "\u05D4 hey", description: "hey" },
-            { text: "\u05D5", buttonLabel: "\u05D5 vov", description: "vov" },
-            { text: "\u05D5\u05BC", buttonLabel: "\u05D5\u05BC melupm vov", description: "melupm vov" },
-            { text: "\u05D6", buttonLabel: "\u05D6 zayen", description: "zayen" },
-            { text: "\u05D7", buttonLabel: "\u05D7 khes", description: "khes" },
-            { text: "\u05D8", buttonLabel: "\u05D8 tes", description: "tes" },
-            { text: "\u05D9", buttonLabel: "\u05D9 yud", description: "yud" },
-            { text: "\u05DB\u05BC", buttonLabel: "\u05DB\u05BC kof", description: "kof" },
-            { text: "\u05DB", buttonLabel: "\u05DB khof", description: "khof" },
-            { text: "\u05DA", buttonLabel: "\u05DA langer khof", description: "langer khof" },
-            { text: "\u05DC", buttonLabel: "\u05DC lamed", description: "lamed" },
-            { text: "\u05DE", buttonLabel: "\u05DE mem", description: "mem" },
-            { text: "\u05DD", buttonLabel: "\u05DD shlos mem", description: "shlos mem" },
-            { text: "\u05E0", buttonLabel: "\u05E0 nun", description: "nun" },
-            { text: "\u05DF", buttonLabel: "\u05DF langer nun", description: "langer nun" },
-            { text: "\u05E1", buttonLabel: "\u05E1 samekh", description: "samekh" },
-            { text: "\u05E2", buttonLabel: "\u05E2 ayen", description: "ayen" },
-            { text: "\u05E4\u05BC", buttonLabel: "\u05E4\u05BC pey", description: "pey" },
-            { text: "\u05E4\u05BF", buttonLabel: "\u05E4\u05BF fey", description: "fey" },
-            { text: "\u05E3", buttonLabel: "\u05E3 langer fey", description: "langer fey" },
-            { text: "\u05E6", buttonLabel: "\u05E6 tsadek", description: "tsadek" },
-            { text: "\u05E5", buttonLabel: "\u05E5 langer tsadek", description: "langer tsadek" },
-            { text: "\u05E7", buttonLabel: "\u05E7 kuf", description: "kuf" },
-            { text: "\u05E8", buttonLabel: "\u05E8 reysh", description: "reysh" },
-            { text: "\u05E9", buttonLabel: "\u05E9 shin", description: "shin" },
-            { text: "\u05E9\u05C2", buttonLabel: "\u05E9\u05C2 sin", description: "sin" },
-            { text: "\u05EA\u05BC", buttonLabel: "\u05EA\u05BC tof", description: "tof" },
-            { text: "\u05EA", buttonLabel: "\u05EA sof", description: "sof" },
+        var alphabet = [
+            { text: "\u05D0", buttonLabel: "\u05D0 Alef", description: "Alef", oggAudioFile: "audio/05D0.ogg", mp3AudioFile: "audio/05D0.mp3", audioId: "alefAudio" },
+            { text: "\u05D1", buttonLabel: "\u05D1 Bet", description: "Bet", oggAudioFile: "audio/05D1.ogg", mp3AudioFile: "audio/05D1.mp3", audioId: "vetAudio" },
+            { text: "\u05D2", buttonLabel: "\u05D2 Gimel", description: "Gimel", oggAudioFile: "audio/05D2.ogg", mp3AudioFile: "audio/05D2.mp3", audioId: "gimelAudio" },
+            { text: "\u05D3", buttonLabel: "\u05D3 Dalet", description: "Dalet", oggAudioFile: "audio/05D3.ogg", mp3AudioFile: "audio/05D3.mp3", audioId: "daletAudio" },
+            { text: "\u05D4", buttonLabel: "\u05D4 He", description: "Hey", oggAudioFile: "audio/05D4.ogg", mp3AudioFile: "audio/05D4.mp3", audioId: "heyAudio" },
+            { text: "\u05D5", buttonLabel: "\u05D5 Vav", description: "vav", oggAudioFile: "audio/05D5.ogg", mp3AudioFile: "audio/05D5.mp3", audioId: "vavAudio" },
+            { text: "\u05D6", buttonLabel: "\u05D6 Zayin", description: "zayen", oggAudioFile: "audio/05D6.ogg", mp3AudioFile: "audio/05D6.mp3", audioId: "zayenAudio" },
+            { text: "\u05D7", buttonLabel: "\u05D7 Chet", description: "khet", oggAudioFile: "audio/05D7.ogg", mp3AudioFile: "audio/05D7.mp3", audioId: "khetAudio" },
+            { text: "\u05D8", buttonLabel: "\u05D8 Tet", description: "tet", oggAudioFile: "audio/05D8.ogg", mp3AudioFile: "audio/05D8.mp3", audioId: "tetAudio" },
+            { text: "\u05D9", buttonLabel: "\u05D9 Yod", description: "yod", oggAudioFile: "audio/05D9.ogg", mp3AudioFile: "audio/05D9.mp3", audioId: "yodAudio" },
+            { text: "\u05DB", buttonLabel: "\u05DB Khaf", description: "khaf", oggAudioFile: "audio/05DB.ogg", mp3AudioFile: "audio/05DB.mp3", audioId: "khafAudio" },
+            { text: "\u05DC", buttonLabel: "\u05DC Lamed", description: "lamed", oggAudioFile: "audio/05DC.ogg", mp3AudioFile: "audio/05DC.mp3", audioId: "lamedAudio" },
+            { text: "\u05DE", buttonLabel: "\u05DE Mem", description: "mem", oggAudioFile: "audio/05DE.ogg", mp3AudioFile: "audio/05DE.mp3", audioId: "memAudio" },
+            { text: "\u05E0", buttonLabel: "\u05E0 Nun", description: "nun", oggAudioFile: "audio/05E0.ogg", mp3AudioFile: "audio/05E0.mp3", audioId: "nunAudio" },
+            { text: "\u05E1", buttonLabel: "\u05E1 Samekh", description: "samekh", oggAudioFile: "audio/05E1.ogg", mp3AudioFile: "audio/05E1.mp3", audioId: "samekhAudio" }, 
+            // I chose to spell Samekh with "kh here" even though the website, I am basing
+            // it on is different.
+            
+            { text: "\u05E2", buttonLabel: "\u05E2 Ayin", description: "ayin", oggAudioFile: "audio/05E2.ogg", mp3AudioFile: "audio/05E2.mp3", audioId: "ayinAudio" },
+            { text: "\u05E4\u05BC", buttonLabel: "\u05E4 Feh", description: "fey", oggAudioFile: "audio/05E4.ogg", mp3AudioFile: "audio/05E4.mp3", audioId: "fehAudio" },
+            { text: "\u05E6", buttonLabel: "\u05E6 Tsadeh", description: "tsadi", oggAudioFile: "audio/05E6.ogg", mp3AudioFile: "audio/05E6.mp3", audioId: "tsadehAudio" },
+            { text: "\u05E7", buttonLabel: "\u05E7 Qof", description: "kuf", oggAudioFile: "audio/05E7.ogg", mp3AudioFile: "audio/05E7.mp3", audioId: "qofAudio" },
+            { text: "\u05E8", buttonLabel: "\u05E8 Resh", description: "resh", oggAudioFile: "audio/05E8.ogg", mp3AudioFile: "audio/05E8.mp3", audioId: "reshAudio" },
+            { text: "\u05E9", buttonLabel: "\u05E9\u05C1 Shin", description: "shin", oggAudioFile: "audio/05E9.ogg", mp3AudioFile: "audio/05E9.mp3", audioId: "shinAudio" },
+            { text: "\u05EA\u05BC", buttonLabel: "\u05EA Tav", description: "tav", oggAudioFile: "audio/05EA.ogg", mp3AudioFile: "audio/05EA.mp3", audioId: "tavAudio" },
         ];
-
-        // Whitespace characters are characters that require no ink to write
-        // when written traditionally on paper. In essence they are spaces between
-        // words or lines.
-        var whiteSpaceCharacters = [
-            { text: " ", buttonLabel: "[space]", description: "add space" },
-            { text: "\n", buttonLabel: "[start new line]", description: "start new line" },
-            { text: "\t", buttonLabel: "[indent]", description: "indent" },
+        
+        var finalCharacters = [
+            { text: "\u05DA", buttonLabel: "\u05DA Khaf Sofit", description: "khaf sofit", oggAudioFile: "audio/05DA.ogg", mp3AudioFile: "audio/05DA.mp3", audioId: "khafSofitAudio"  },
+            { text: "\u05DD", buttonLabel: "\u05DD Mem Sofit", description: "mem sofit", oggAudioFile: "audio/05DD.ogg", mp3AudioFile: "audio/05DD.mp3", audioId: "memSofitAudio"  },
+            { text: "\u05DF", buttonLabel: "\u05DF Nun Sofit", description: "nun sofit", oggAudioFile: "audio/05DF.ogg", mp3AudioFile: "audio/05DF.mp3", audioId: "nunSofitAudio"  },
+            { text: "\u05E3", buttonLabel: "\u05E3 Feh Sofit", description: "feh sofit", oggAudioFile: "audio/05E3.ogg", mp3AudioFile: "audio/05E3.mp3", audioId: "fehSofitAudio"  },
+            { text: "\u05E5", buttonLabel: "\u05E5 Tsadeh Sofit", description: "tsadi sofit", oggAudioFile: "audio/05E5.ogg", mp3AudioFile: "audio/05E5.mp3", audioId: "tsadehSofitAudio"  },
         ];
-
-        // Punctuation characters.
-        // Note, Yiddish is written in Hebrew script. And
-        // Geresh roughly corresponds to single quote
-        // in Latin script. Gershayim roughly corresponds to
-        // double quote. But they have extra uses that
-        // have no equivalent in the Latin script.
-        var punctuationCharacters = [
-            { text: ".", buttonLabel: ".", description: "." },
-            { text: ",", buttonLabel: ",", description: "," },
-            { text: "?", buttonLabel: "?", description: "?" },
-            { text: ";", buttonLabel: ";", description: ";" },
-            { text: ":", buttonLabel: ":", description: ":" },
-            { text: "\u05F3", buttonLabel: "\u05F3 geresh", description: "\u05F3 geresh" },
-            { text: "\u05F4", buttonLabel: "\u05F4 gershayim", description: "\u05F4 gershayim" },
-        ];
-
-        // The following are combinations of letters.
-        // Mathematically speaking these are sequences of letters.
-        // Technically, we do not need these buttons. Every letter combination
-        // here could be written by pressing two distinct buttons above,
-        // except for the last one.
-        // However the buttons on this page are based directly on yivo.org/Yiddish-Alphabet
-        // and I would rather follow their description as closely as possible.
-        // For those who are linguists, you may notice that a few of these are
-        // ways of writing affricates and dipthongs in Yiddish. Since linguistically
-        // people perceive the group of sounds these letter combinations represent as a single
-        // sound, it is quite reasonable to give them their own button.
-        var letterCombinations = [
-            { text: "\u05D5\u05D5", buttonLabel: "\u05D5\u05D5", description: "\u05D5\u05D5" },
-            { text: "\u05D6\u05E9", buttonLabel: "\u05D6\u05E9", description: "\u05D6\u05E9" },
-            { text: "\u05D3\u05D6\u05E9", buttonLabel: "\u05D3\u05D6\u05E9", description: "\u05D3\u05D6\u05E9" },
-            { text: "\u05D8\u05E9", buttonLabel: "\u05D8\u05E9", description: "\u05D8\u05E9" },
-            { text: "\u05D5\u05E9", buttonLabel: "\u05D5\u05E9", description: "\u05D5\u05E9" },
-            { text: "\u05E9\u05E9", buttonLabel: "\u05E9\u05E9", description: "\u05E9\u05E9" },
-            { text: "\u05F2\u05B7", buttonLabel: "\u05F2\u05B7", description: "\u05F2\u05B7" }
-        ];
-
-
-        // This function returns a function that places text
-        // at the end of the text area.
-        function onClickButtonForWriting(textToWrite) {
+        
+        // This function returns a function that speaks
+        // audio
+        function onClickButtonForSpeaking(audioIdToSpeak) {
             function enclosedFunction() {
-                document.getElementById("textOutput").value += textToWrite;
+                var audioElement = document.getElementById(audioIdToSpeak);
+                audioElement.play();
             }
             return enclosedFunction;
         }
 
-        // Create a button that when pressed
-        // writes text into a text box.
-        // The parameter is expected to have
-        // text, button, and description properties of type string.
-        function createButtonForWriting(letter) {
-            return createLabelledButtonForWriting(letter.text, letter.buttonLabel, letter.description);
+
+        function createButtonForSpeaking(letter) {
+            return createLabelledButtonForSpeaking(letter.text, letter.buttonLabel, letter.description, letter.audioId);
         }
 
-        // Create a button that when pressed
-        // writes text into a text box.
-        // All parameters are strings.
-        function createLabelledButtonForWriting(textToWrite, buttonLabel, description) {
+        function createLabelledButtonForSpeaking(textToWrite, buttonLabel, description, audioId) {
             var aButton = document.createElement("button");
             var textNode = document.createTextNode(buttonLabel);
             aButton.appendChild(textNode);
             aButton.ariaLabel = description;
-            aButton.onclick = onClickButtonForWriting(textToWrite);
+            aButton.onclick = onClickButtonForSpeaking(audioId);
             return aButton;
         }
+
 
         // Create a heading of a particular level.
         // This first argument is a number such as "1", "2", all the way to "6".
@@ -192,86 +142,105 @@
         }
 
 
-        function attachButtonsForWriting(idOfRootElement) {
+        function createAudioElement(id, mp3FilePath, oggFilePath) {
+                // Creating HTML similar to the following
+                // code from https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_audio_play
+                // accessed at Wednesday, April 13, 2022.
+                // <audio id="myAudio">
+                //     <source src="horse.ogg" type="audio/ogg">
+                //     <source src="horse.mp3" type="audio/mpeg">
+                //     Your browser does not support the audio element.
+                // </audio>
+
+
+                var audioElement = document.createElement("audio");
+                audioElement.id = id;
+
+                if (oggFilePath) {
+                    var oggSourceElement = document.createElement("source");
+                    oggSourceElement.src = oggFilePath;
+                    oggSourceElement.type = "audio/ogg";
+                    audioElement.appendChild(oggSourceElement);
+                }
+
+                if (mp3FilePath) {
+                    var mp3SourceElement = document.createElement("source");
+                    mp3SourceElement.src = mp3FilePath;
+                    mp3SourceElement.type = "audio/mpeg"; 
+                    audioElement.appendChild(mp3SourceElement);
+                }
+                var noSupportMessage = document.createTextNode("Cannot play audio because your browser does not support the audio element.");
+                audioElement.appendChild(noSupportMessage)
+                return audioElement;
+            }
+
+
+        function attachButtonsForSpeaking(idOfRootElement) {
             var root = document.getElementById(idOfRootElement);
 
             root.dir = "rtl";
 
-            var whiteSpaceDiv = document.createElement("div");
-            whiteSpaceDiv.className = "whitespace";
-            root.appendChild(createHeading(2, "Spacing"))
-            for (var i = 0; i < whiteSpaceCharacters.length; i++) {
-                whiteSpaceDiv.appendChild(createButtonForWriting(whiteSpaceCharacters[i]));
+            var audioSectionDiv = document.createElement("div");
+            for (var i = 0; i < alphabet.length; i++) {
+                root.appendChild(createAudioElement(alphabet[i].audioId, alphabet[i].mp3AudioFile, alphabet[i].oggAudioFile))
             }
-            root.appendChild(whiteSpaceDiv);
 
-            var punctuationDiv = document.createElement("div");
-            punctuationDiv.className = "punctuation";
-            root.appendChild(createHeading(2, "Punctuation"))
-
-            for (var i = 0; i < punctuationCharacters.length; i++) {
-                punctuationDiv.appendChild(createButtonForWriting(punctuationCharacters[i]));
+            for (var i = 0; i < finalCharacters.length; i++) {
+                root.appendChild(createAudioElement(finalCharacters[i].audioId, finalCharacters[i].mp3AudioFile, finalCharacters[i].oggAudioFile))
             }
-            root.appendChild(punctuationDiv);
+
+            root.appendChild(audioSectionDiv);
 
             var alphabetDiv = document.createElement("div");
             alphabetDiv.className = "alphabet";
-            root.appendChild(createHeading(2, "Alphabet"))
+            root.appendChild(createHeading(2, "Hebrew Alphabet: Play Audio of Letter Names"))
 
-            for (var i = 0; i < yiddishAlphabet.length; i++) {
-                alphabetDiv.appendChild(createButtonForWriting(yiddishAlphabet[i]));
+            root.appendChild(createParagraph(aboutThisApplication));
+
+            for (var i = 0; i < alphabet.length; i++) {
+                alphabetDiv.appendChild(createButtonForSpeaking(alphabet[i]));
             }
             root.appendChild(alphabetDiv);
 
-            var combinationsDiv = document.createElement("div");
-            root.appendChild(createHeading(2, "Letter Combinations"))
+            var finalCharactersDiv = document.createElement("div");
+            root.appendChild(createHeading(2, "Final Characters"))
 
-            combinationsDiv.className = "combinations";
-            for (var i = 0; i < letterCombinations.length; i++) {
-                combinationsDiv.appendChild(createButtonForWriting(letterCombinations[i]));
+            finalCharactersDiv.className = "finals";
+            for (var i = 0; i < finalCharacters.length; i++) {
+                finalCharactersDiv.appendChild(createButtonForSpeaking(finalCharacters[i]));
             }
-            root.appendChild(combinationsDiv);
+            root.appendChild(finalCharactersDiv);
         }
 
-        // Create heading for the whole Yiddish Alphabet Basic keyboard
+        // Create heading for the whole Hebrew Alphabet Basic keyboard
         // application.
         function createAppHeading() {
-            var heading1 = createHeading("1", "Yiddish Alphabet Basic Keyboard");
+            var heading1 = createHeading("1", "Hebrew Alphabet Basic Keyboard");
             return heading1;
         }
 
-        // Create a text area. The text the user types appears here.
-        function createTextArea() {
-            var textArea = document.createElement("textarea");
-            textArea.id = "textOutput";
-            textArea.dir = "rtl";
-            textArea.style = "width:95%";
-            textArea.rows = 4;
-
-            // Set the text area language to Yiddish.
-            textArea.lang = "yi";
-
-            var placeholderText = "Text you type with buttons below gets added to the end of the text in this text box";
-            textArea.ariaLabel = placeholderText;
-            textArea.placeholder = placeholderText;
-            return textArea
-
+        function createParagraph(someText) {
+            var paragraph = document.createElement("p");
+            paragraph.dir = "ltr";
+            var textElement = document.createTextNode(someText);
+            paragraph.appendChild(textElement);
+            return paragraph;
         }
 
         // Create a footer.
         function createFooter() {
             var footer = document.createElement("footer");
             var link = document.createElement("a");
-            link.href = "https://yivo.org/Yiddish-Alphabet";
-            var linkText = document.createTextNode("About the Yiddish Alef-BEYS (ALPHABET)");
+            link.href = "https://www.jewishvirtuallibrary.org/the-hebrew-alphabet-aleph-bet";
+            var linkText = document.createTextNode("The Hebrew Alphabet (Aleph-Bet)");
             link.appendChild(linkText);
             footer.appendChild(link);
+
             return footer;
         }
 
         root.appendChild(document.createComment("Start of HTML code generated by Javascript."));
-        root.appendChild(createTextArea());
-        attachButtonsForWriting("root");
+        attachButtonsForSpeaking("root");
         root.appendChild(createFooter());
 
 
