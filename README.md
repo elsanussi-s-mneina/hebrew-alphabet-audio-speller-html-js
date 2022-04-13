@@ -10,9 +10,15 @@ Thanks go to the Hebrew teacher who provided the audio back in 2008.
 
 If you have any questions, you can contact me.
 
+## How to use with the internet
+Try now at https://elsanussi-s-mneina.github.io/hebrew-alphabet-audio-speller-html-js/
+
 ## How to use without internet
 1. First you will need internet to download the code.
 2. Click the Code button at the top of this page or at github.com/hebrew-alphabet-audio-speller-html-js
-3. Click "Download Zip"
-4. Unzip the downloaded file (may happen automatically)
-5. Open index.html inside the folder that appears.
+3. Click "Download Zip" 
+     If you cannot find the Code, or Download Zip button. You can instead click the following link: https://github.com/elsanussi-s-mneina/hebrew-alphabet-audio-speller-html-js/archive/refs/heads/trunk.zip
+
+5. Unzip the downloaded file (may happen automatically)
+6. Open the file named index.html inside the folder that appears.
+7. Your web browser should open.
