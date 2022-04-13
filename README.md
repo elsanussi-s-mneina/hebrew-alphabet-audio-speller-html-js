@@ -21,3 +21,6 @@ If you have any questions, you can contact me.
 5. Unzip the downloaded file (may happen automatically)
 6. Open the file named index.html inside the folder that appears.
 7. Your web browser should open.
+
+## [Watch explanation for new users at https://youtu.be/G11C3Khq0P4](https://youtu.be/G11C3Khq0P4)
+## [Watch source code tour for software developers at https://youtu.be/l0aLoQKNb9Y](https://youtu.be/l0aLoQKNb9Y)
