@@ -1,4 +1,5 @@
 # hebrew-alphabet-audio-speller-html-js
+Try it now at https://elsanussi-s-mneina.github.io/hebrew-alphabet-audio-speller-html-js/
 
 For spelling Hebrew using Hebrew letters in a real human voice, one letter at a time.
 
@@ -10,8 +11,6 @@ Thanks go to the Hebrew teacher who provided the audio back in 2008.
 
 If you have any questions, you can contact me.
 
-## How to use with the internet
-Try now at https://elsanussi-s-mneina.github.io/hebrew-alphabet-audio-speller-html-js/
 
 ## How to use without internet
 1. First you will need internet to download the code.
